@@ -4,3 +4,7 @@
 html {
   font-family: "Poppins", sans-serif;
 }
+.auth-btns .active {
+  background-color: oklch(62.3% 0.214 259.815);
+  color: white;
+}
