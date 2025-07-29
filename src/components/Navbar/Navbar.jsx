@@ -39,7 +39,9 @@ const Navbar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 font-medium" : "hover:text-blue-500"
+          isActive
+            ? "text-blue-500 font-medium"
+            : "hover:text-blue-500 duration-300"
         }
       >
         Home
@@ -47,7 +49,9 @@ const Navbar = () => {
       <NavLink
         to="/all-flights"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 font-medium" : "hover:text-blue-500"
+          isActive
+            ? "text-blue-500 font-medium"
+            : "hover:text-blue-500 duration-300"
         }
       >
         All Flights
@@ -60,7 +64,9 @@ const Navbar = () => {
               : "/dashboard/my-bookings"
           }
           className={({ isActive }) =>
-            isActive ? "text-blue-500 font-medium" : "hover:text-blue-500"
+            isActive
+              ? "text-blue-500 font-medium"
+              : "hover:text-blue-500 duration-300"
           }
         >
           Dashboard
@@ -71,7 +77,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+      <div className="max-w-[1300px] mx-auto px-4 md:px-6 lg:px-8 xl:px-10 py-5 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-blue-600">
           Air<span className="text-black">Booker</span>
