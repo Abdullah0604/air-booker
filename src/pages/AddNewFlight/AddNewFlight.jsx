@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useLocation } from "react-router";
 
 const AddNewFlight = () => {
   const axiosSecure = useAxiosSecure();
-
+  const location = useLocation();
+  console.log(location);
   // React Hook Form Setup
   const {
     register,

@@ -100,7 +100,7 @@ const AllFlights = () => {
         />
 
         {role === "ADMIN" && (
-          <Link to="/add-flight">
+          <Link to="/add-flight" state={refetch}>
             <button
               className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
               onClick={() => console.log("Add new flight")}
