@@ -69,7 +69,7 @@ const Navbar = () => {
               : "hover:text-blue-500 duration-300"
           }
         >
-          Dashboard
+          Bookings Flight
         </NavLink>
       )}
     </>

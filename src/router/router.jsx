@@ -4,6 +4,8 @@ import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
 import AllFlights from "../pages/AllFlights/AllFlights";
+import AddNewFlight from "../pages/AddNewFlight/AddNewFlight";
+import FlightDetails from "../pages/FlightDetails/FlightDetails";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +16,16 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/all-flights",
+        path: "all-flights",
         Component: AllFlights,
+      },
+      {
+        path: "add-flight",
+        Component: AddNewFlight,
+      },
+      {
+        path: "flight-details/:id",
+        Component: FlightDetails,
       },
       {
         path: "register",
