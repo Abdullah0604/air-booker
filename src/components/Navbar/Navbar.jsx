@@ -58,11 +58,7 @@ const Navbar = () => {
       </NavLink>
       {token && (
         <NavLink
-          to={
-            role === "ADMIN"
-              ? "/dashboard/admin/flights"
-              : "/dashboard/my-bookings"
-          }
+          to={role === "ADMIN" ? "/admin/flights" : "/my-bookings"}
           className={({ isActive }) =>
             isActive
               ? "text-blue-500 font-medium"

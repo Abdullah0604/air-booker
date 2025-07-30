@@ -6,6 +6,7 @@ import MainLayout from "../layouts/MainLayout";
 import AllFlights from "../pages/AllFlights/AllFlights";
 import AddNewFlight from "../pages/AddNewFlight/AddNewFlight";
 import FlightDetails from "../pages/FlightDetails/FlightDetails";
+import MyBookings from "../pages/MyBookingsFlight/MyBookingsFlight";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "flight-details/:id",
         Component: FlightDetails,
+      },
+      {
+        path: "my-bookings",
+        Component: MyBookings,
       },
       {
         path: "register",

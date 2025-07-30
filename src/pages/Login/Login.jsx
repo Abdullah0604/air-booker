@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,6 +26,9 @@ const Login = () => {
       if (data.ok) {
         // Token save
         localStorage.setItem("token", data.data.token);
+        const payload = jwtDecode(data.data.token);
+        // payload.role -> role পাওয়া যাবে
+        localStorage.setItem("role", payload.role);
         Swal.fire("Success!", "Login successful!", "success");
         navigate("/"); // Redirect to Home (or dashboard)
       }
