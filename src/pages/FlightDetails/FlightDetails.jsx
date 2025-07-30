@@ -9,7 +9,7 @@ const FlightDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-
+  const role = localStorage.getItem("role");
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [countdown, setCountdown] = useState(null);
 
@@ -89,6 +89,19 @@ const FlightDetails = () => {
     );
   };
 
+  const handleReserveSeats = (seatNumbers) => {
+    if (role === "ADMIN") {
+      Swal.fire(
+        "Not Allowed!",
+        "Admins are not permitted to book seats.",
+        "warning"
+      );
+      return; // এখানেই থেমে যাবে, request যাবে না
+    }
+
+    // USER হলে mutation কল হবে
+    reserveSeats(seatNumbers);
+  };
   // Countdown Timer Effect
   useEffect(() => {
     if (countdown === null) return;
@@ -207,7 +220,7 @@ const FlightDetails = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           {!countdown && (
             <button
-              onClick={() => reserveSeats(selectedSeats)}
+              onClick={() => handleReserveSeats(selectedSeats)}
               disabled={selectedSeats.length === 0}
               className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
             >
