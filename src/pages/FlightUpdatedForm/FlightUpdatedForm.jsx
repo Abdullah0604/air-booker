@@ -28,7 +28,7 @@ const UpdatedFlightForm = ({ flightInfo, onClose, refetch }) => {
   // Mutation for updating flight
   const { mutate: updateFlight, isPending } = useMutation({
     mutationFn: async (updatedFlight) => {
-      return await axiosSecure.put(
+      return await axiosSecure.get(
         `/api/flights/${flightInfo._id}`,
         updatedFlight
       );

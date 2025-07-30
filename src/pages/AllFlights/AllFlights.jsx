@@ -6,10 +6,10 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router";
 import UpdatedFlightForm from "../FlightUpdatedForm/FlightUpdatedForm";
 
-const AllFlights = ({ role = "USER" }) => {
+const AllFlights = () => {
   const [filter, setFilter] = useState("");
   const axiosSecure = useAxiosSecure();
-
+  const role = localStorage.getItem("role");
   // modal state
   const [showModal, setShowModal] = useState(false);
   const [selectedFlight, setSelectedFlight] = useState(null);
@@ -99,17 +99,16 @@ const AllFlights = ({ role = "USER" }) => {
           className="w-full md:w-1/2 p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
         />
 
-        {/* {role === "ADMIN" && ( */}
-        <Link to="/add-flight">
-          <button
-            className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
-            onClick={() => console.log("Add new flight")}
-          >
-            <FaPlus /> Add New Flight
-          </button>
-        </Link>
-
-        {/* )} */}
+        {role === "ADMIN" && (
+          <Link to="/add-flight">
+            <button
+              className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm"
+              onClick={() => console.log("Add new flight")}
+            >
+              <FaPlus /> Add New Flight
+            </button>
+          </Link>
+        )}
       </div>
 
       {/* Flights Table */}
@@ -159,24 +158,24 @@ const AllFlights = ({ role = "USER" }) => {
                       </Link>
                     </button>
                     {/* Admin Only */}
-                    {/* {role === "ADMIN" && ( */}
-                    <>
-                      <button
-                        className="text-blue-600 hover:text-blue-800"
-                        title="Edit Flight"
-                        onClick={() => handleEdit(flight)}
-                      >
-                        <FaEdit size={20} />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(flight._id)}
-                        className="text-red-600 hover:text-red-800"
-                        title="Delete Flight"
-                      >
-                        <FaTrash size={20} />
-                      </button>
-                    </>
-                    {/* )} */}
+                    {role === "ADMIN" && (
+                      <>
+                        <button
+                          className="text-blue-600 hover:text-blue-800"
+                          title="Edit Flight"
+                          onClick={() => handleEdit(flight)}
+                        >
+                          <FaEdit size={20} />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(flight._id)}
+                          className="text-red-600 hover:text-red-800"
+                          title="Delete Flight"
+                        >
+                          <FaTrash size={20} />
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))
