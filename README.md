@@ -4,7 +4,7 @@ A fully responsive flight booking system frontend built using **React** with rol
 
 ---
 
-## 🚀 Features
+## 🚀 Main Features
 
 ### 🔐 Authentication (User & Admin)
 
